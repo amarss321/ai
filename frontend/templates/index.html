@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Meeting Assistant</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Meeting Assistant</h1>
+            <p>Capture, analyze, and enhance your video meetings</p>
+        </header>
+
+        <main>
+            <section class="capture-controls">
+                <div class="card">
+                    <h2>Meeting Capture</h2>
+                    <div class="control-buttons">
+                        <button id="startCapture" class="btn primary">Start Capture</button>
+                        <button id="stopCapture" class="btn secondary" disabled>Stop Capture</button>
+                    </div>
+                    <div class="status-indicator">
+                        <span id="captureStatus">Not capturing</span>
+                        <div id="statusLight" class="status-light inactive"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="preview">
+                <div class="card">
+                    <h2>Screen Preview</h2>
+                    <div class="preview-container">
+                        <video id="screenPreview" autoplay muted></video>
+                        <div id="previewPlaceholder" class="preview-placeholder">
+                            <p>Screen preview will appear here</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="responses">
+                <div class="card">
+                    <h2>AI Responses</h2>
+                    <div class="response-container" id="responseContainer">
+                        <div class="empty-state">
+                            <p>AI responses will appear here during your meeting</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="settings">
+                <div class="card">
+                    <h2>Settings</h2>
+                    <form id="settingsForm">
+                        <div class="form-group">
+                            <label for="phoneNumber">Mobile Phone Number (for notifications)</label>
+                            <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="+1234567890">
+                        </div>
+                        <div class="form-group">
+                            <label for="aiResponseFrequency">AI Response Frequency</label>
+                            <select id="aiResponseFrequency" name="aiResponseFrequency">
+                                <option value="30">Every 30 seconds</option>
+                                <option value="60" selected>Every minute</option>
+                                <option value="120">Every 2 minutes</option>
+                                <option value="300">Every 5 minutes</option>
+                            </select>
+                        </div>
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="sendMobileNotifications" name="sendMobileNotifications">
+                            <label for="sendMobileNotifications">Send responses to mobile</label>
+                        </div>
+                        <button type="submit" class="btn primary">Save Settings</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 AI Meeting Assistant</p>
+        </footer>
+    </div>
+
+    <div id="connectionStatus" class="connection-status">
+        <span id="connectionStatusText">Connected</span>
+    </div>
+
+    <script src="/static/js/webrtc.js"></script>
+    <script src="/static/js/websocket.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
